@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Store Mock Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Product Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body x-data="storeApp()">
+    
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-row mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <div class="flex items-center space-x-8">
+                <div class="text-2xl font-bold text-gray-700">Google Store</div>
+                <nav class="hidden md:flex space-x-6">
+                    <template x-for="cat in categories" :key="cat">
+                        <button 
+                            @click="selectedCategory = cat" 
+                            class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors uppercase tracking-wider"
+                            :class="{'text-blue-600 border-b-2 border-blue-600': selectedCategory === cat}"
+                            x-text="cat">
+                        </button>
+                    </template>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="p-2 text-gray-500 hover:bg-gray-100 rounded-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+                <button class="p-2 text-gray-500 hover:bg-gray-100 rounded-full relative">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Offers -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <template x-for="offer in offers" :key="offer.id">
+                <div class="bg-blue-50 border border-blue-100 rounded-2xl p-8 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="text-blue-800 text-sm font-semibold uppercase tracking-widest mb-2" x-text="offer.title"></h3>
+                        <p class="text-2xl font-bold text-gray-900 mb-4" x-text="offer.description"></p>
+                    </div>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-full font-medium w-fit hover:bg-blue-700 transition-colors">
+                        Learn more
+                    </button>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 capitalize" x-text="selectedCategory"></h2>
+            <p class="text-gray-500" x-text="`${filteredProducts().length} products`"></p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <template x-for="product in filteredProducts()" :key="product.id">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-square bg-gray-100 flex items-center justify-center p-8 group">
+                         <!-- Placeholder for image -->
+                        <div class="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500">
+                             <span class="text-xs font-bold uppercase" x-text="product.category"></span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" x-text="product.name"></h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2" x-text="product.description"></p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-lg font-bold text-gray-900" x-text="`$${product.price}`"></span>
+                            <button class="text-blue-600 font-semibold hover:text-blue-800">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 border-t border-gray-200 mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm">© 2024 Google Store Mock Demo. Powered by MCP.</p>
+        </div>
+    </footer>
+
+    <script>
+        function storeApp() {
+            return {
+                selectedCategory: 'phones',
+                categories: ['phones', 'earbuds', 'watches', 'activity trackers', 'smarthome', 'tablets', 'accessories'],
+                products: [
+                    { id: 'p9pxl', category: 'phones', name: 'Pixel 9 Pro XL', description: 'The most powerful Pixel yet, with a pro-level camera and Gemini AI.', price: 1099.00 },
+                    { id: 'p9p', category: 'phones', name: 'Pixel 9 Pro', description: 'Pro cameras and Gemini AI in a compact size.', price: 999.00 },
+                    { id: 'p9', category: 'phones', name: 'Pixel 9', description: 'The everyday premium phone with AI-powered helpfulness.', price: 799.00 },
+                    { id: 'p8a', category: 'phones', name: 'Pixel 8a', description: 'The AI-powered Pixel at an amazing value.', price: 499.00 },
+                    { id: 'pbp2', category: 'earbuds', name: 'Pixel Buds Pro 2', description: 'The only earbuds engineered for Gemini.', price: 229.00 },
+                    { id: 'pba', category: 'earbuds', name: 'Pixel Buds A-Series', description: 'Rich sound, for less.', price: 99.00 },
+                    { id: 'pw3', category: 'watches', name: 'Pixel Watch 3', description: 'The first watch with Loss of Pulse Detection.', price: 349.00 },
+                    { id: 'fc6', category: 'activity trackers', name: 'Fitbit Charge 6', description: 'Give your routine a routine.', price: 159.00 },
+                    { id: 'fi3', category: 'activity trackers', name: 'Fitbit Inspire 3', description: 'Do what you love and feel your best.', price: 99.00 },
+                    { id: 'nth4', category: 'smarthome', name: 'Nest Learning Thermostat (4th gen)', description: 'The thermostat that learns from you.', price: 279.00 },
+                    { id: 'ndc', category: 'smarthome', name: 'Nest Doorbell (wired, 2nd gen)', description: 'The wired doorbell that knows who’s there.', price: 179.00 },
+                    { id: 'pt', category: 'tablets', name: 'Pixel Tablet', description: 'The tablet that\'s also the heart of your home.', price: 399.00 },
+                    { id: 'p9pc', category: 'accessories', name: 'Pixel 9 Pro Case', description: 'Designed to protect and look great.', price: 34.99 }
+                ],
+                offers: [
+                    { id: 'offer1', title: 'Pixel 9 Pro Trade-in', description: 'Get up to $760 back with a qualifying trade-in towards Pixel 9 Pro.' },
+                    { id: 'offer2', title: 'Bundle & Save', description: 'Save $50 on Pixel Buds Pro 2 when you buy any Pixel 9 series phone.' }
+                ],
+                filteredProducts() {
+                    return this.products.filter(p => p.category === this.selectedCategory);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
