@@ -20,7 +20,8 @@ STORE_PRODUCTS = [
         "description": "The most powerful Pixel yet, with a pro-level camera and Gemini AI.",
         "price": 1099.00,
         "currency": "USD",
-        "specs": ["6.8-inch Super Actua display", "Triple rear camera system", "Tensor G4 chip"]
+        "specs": ["6.8-inch Super Actua display", "Triple rear camera system", "Tensor G4 chip"],
+        "image": "images/phone.png"
     },
     {
         "id": "p9p",
@@ -29,7 +30,8 @@ STORE_PRODUCTS = [
         "description": "Pro cameras and Gemini AI in a compact size.",
         "price": 999.00,
         "currency": "USD",
-        "specs": ["6.3-inch Super Actua display", "Triple rear camera system", "Tensor G4 chip"]
+        "specs": ["6.3-inch Super Actua display", "Triple rear camera system", "Tensor G4 chip"],
+        "image": "images/phone.png"
     },
     {
         "id": "p9",
@@ -38,7 +40,8 @@ STORE_PRODUCTS = [
         "description": "The everyday premium phone with AI-powered helpfulness.",
         "price": 799.00,
         "currency": "USD",
-        "specs": ["6.3-inch Actua display", "Advanced dual rear camera", "Tensor G4 chip"]
+        "specs": ["6.3-inch Actua display", "Advanced dual rear camera", "Tensor G4 chip"],
+        "image": "images/phone.png"
     },
     {
         "id": "p8a",
@@ -47,7 +50,8 @@ STORE_PRODUCTS = [
         "description": "The AI-powered Pixel at an amazing value.",
         "price": 499.00,
         "currency": "USD",
-        "specs": ["6.1-inch Actua display", "Tensor G3 chip", "All-day battery"]
+        "specs": ["6.1-inch Actua display", "Tensor G3 chip", "All-day battery"],
+        "image": "images/phone.png"
     },
     # Earbuds
     {
@@ -57,7 +61,8 @@ STORE_PRODUCTS = [
         "description": "The only earbuds engineered for Gemini.",
         "price": 229.00,
         "currency": "USD",
-        "features": ["Large 11mm drivers", "Active Noise Cancellation with Silent Seal 2.0", "Built-in Gemini"]
+        "features": ["Large 11mm drivers", "Active Noise Cancellation with Silent Seal 2.0", "Built-in Gemini"],
+        "image": "images/earbuds.png"
     },
     {
         "id": "pba",
@@ -66,7 +71,8 @@ STORE_PRODUCTS = [
         "description": "Rich sound, for less.",
         "price": 99.00,
         "currency": "USD",
-        "features": ["Custom-designed 12mm drivers", "Adaptive Sound", "Up to 5 hours of listening time"]
+        "features": ["Custom-designed 12mm drivers", "Adaptive Sound", "Up to 5 hours of listening time"],
+        "image": "images/earbuds.png"
     },
     # Watches
     {
@@ -76,7 +82,8 @@ STORE_PRODUCTS = [
         "description": "The first watch with Loss of Pulse Detection.",
         "price": 349.00,
         "currency": "USD",
-        "features": ["Advanced health and fitness by Fitbit", "Daily Readiness Score", "Comprehensive heart health tracking"]
+        "features": ["Advanced health and fitness by Fitbit", "Daily Readiness Score", "Comprehensive heart health tracking"],
+        "image": "images/watch.png"
     },
     # Activity Trackers
     {
@@ -86,7 +93,8 @@ STORE_PRODUCTS = [
         "description": "Give your routine a routine.",
         "price": 159.00,
         "currency": "USD",
-        "features": ["Built-in GPS", "Heart rate tracking", "Stress management tools"]
+        "features": ["Built-in GPS", "Heart rate tracking", "Stress management tools"],
+        "image": "images/tracker.png"
     },
     {
         "id": "fi3",
@@ -95,7 +103,8 @@ STORE_PRODUCTS = [
         "description": "Do what you love and feel your best.",
         "price": 99.00,
         "currency": "USD",
-        "features": ["Up to 10 days of battery", "Active Zone Minutes", "Always-on heart rate"]
+        "features": ["Up to 10 days of battery", "Active Zone Minutes", "Always-on heart rate"],
+        "image": "images/tracker.png"
     },
     # Smarthome
     {
@@ -105,7 +114,8 @@ STORE_PRODUCTS = [
         "description": "The thermostat that learns from you.",
         "price": 279.00,
         "currency": "USD",
-        "features": ["Smart Schedule", "Energy History", "Home/Away Assist"]
+        "features": ["Smart Schedule", "Energy History", "Home/Away Assist"],
+        "image": "images/smarthome.png"
     },
     {
         "id": "ndc",
@@ -114,7 +124,8 @@ STORE_PRODUCTS = [
         "description": "The wired doorbell that knows who’s there.",
         "price": 179.00,
         "currency": "USD",
-        "features": ["24/7 continuous video recording", "Intelligent alerts", "Talk and Listen"]
+        "features": ["24/7 continuous video recording", "Intelligent alerts", "Talk and Listen"],
+        "image": "images/smarthome.png"
     },
     # Tablets
     {
@@ -124,7 +135,8 @@ STORE_PRODUCTS = [
         "description": "The tablet that's also the heart of your home.",
         "price": 399.00,
         "currency": "USD",
-        "features": ["11-inch screen", "Charging Speaker Dock included", "Chromecast built-in"]
+        "features": ["11-inch screen", "Charging Speaker Dock included", "Chromecast built-in"],
+        "image": "images/tablet.png"
     },
     # Accessories
     {
@@ -134,7 +146,8 @@ STORE_PRODUCTS = [
         "description": "Designed to protect and look great.",
         "price": 34.99,
         "currency": "USD",
-        "colors": ["Obsidian", "Porcelain", "Hazel", "Rose Quartz"]
+        "colors": ["Obsidian", "Porcelain", "Hazel", "Rose Quartz"],
+        "image": "images/accessory.png"
     }
 ]
 

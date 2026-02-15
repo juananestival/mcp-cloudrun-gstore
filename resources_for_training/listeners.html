@@ -1,0 +1,24 @@
+    <script>
+        window.addEventListener("ces-messenger-loaded", () => {
+            console.log("ces-messenger-loaded");
+            const cesMessenger = document.querySelector('ces-messenger');
+            cesMessenger.registerClientSideFunction(
+                {
+                    toolName: 'projects/hospitality-demo-361210/locations/us/apps/29325e10-98c0-4bae-8473-cc3b2138a698/tools/e1d9cef9-ef33-49e7-99b2-f469a53d3724',
+                    toolDisplayName: 'product_info'
+                },
+                (args) => {
+                    console.log('executing function with arguments', { args });
+                    // Add your code below!
+
+                    const img = document.createElement('img');
+                    img.src = args.imageUrl || 'https://picsum.photos/200';
+                    img.className = 'fixed top-4 left-4 w-48 rounded-lg shadow-lg z-50 border-4 border-white';
+                    document.body.appendChild(img);
+
+
+                    return Promise.resolve({ status: 'success' });
+                },
+            );
+        });
+    </script>
