@@ -143,13 +143,13 @@ OFFERS = [
         "id": "offer1",
         "title": "Pixel 9 Pro Trade-in",
         "description": "Get up to $760 back with a qualifying trade-in towards Pixel 9 Pro.",
-        "expires": "2024-12-31"
+        "expires": "2026-12-31"
     },
     {
         "id": "offer2",
         "title": "Bundle & Save",
         "description": "Save $50 on Pixel Buds Pro 2 when you buy any Pixel 9 series phone.",
-        "expires": "2024-11-15"
+        "expires": "2026-11-15"
     }
 ]
 
